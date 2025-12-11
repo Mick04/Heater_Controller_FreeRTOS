@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <freertos/semphr.h>
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
 #include <PubSubClient.h>
 
 extern SemaphoreHandle_t dataMutex;
@@ -16,10 +17,10 @@ extern float targetTemp;
 extern bool heaterOn;
 
 // MQTT globals
-extern WiFiClient wifi;
+extern WiFiClientSecure wifi;
 extern PubSubClient mqtt;
 
-// MQTT functions
+// Task functions
 void reconnectMQTT();
 void taskMQTT(void *pv);
 
